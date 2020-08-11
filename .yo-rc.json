@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mycompany.myapp"
+    },
+    "jhipsterVersion": "6.7.1",
+    "applicationType": "monolith",
+    "baseName": "pdfserver",
+    "packageName": "com.mycompany.myapp",
+    "packageFolder": "com/mycompany/myapp",
+    "serverPort": "8080",
+    "authenticationType": "session",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "rememberMeKey": "05193d03e9ace3d04d02ab9c4ac63a7175496805c1e06cb7cce779eaec1d41af0183ca2de6c32545cb931232a07bf71d1ef9",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "cerulean",
+    "clientThemeVariant": "primary",
+    "creationTimestamp": 1597131042341,
+    "testFrameworks": ["gatling"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
