@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span>Pdffiles</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pdffile" [routerLink]="['/pdffile/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Pdffile
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="pdffiles?.length === 0">
+        <span>No pdffiles found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="pdffiles?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span>Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="data"><span>Data</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="user.login"><span>User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pdffile of pdffiles ;trackBy: trackId">
+                    <td><a [routerLink]="['/pdffile', pdffile.id, 'view']">{{ pdffile.id }}</a></td>
+                    <td>{{ pdffile.name }}</td>
+                    <td>
+                        <a *ngIf="pdffile.data" (click)="openFile(pdffile.dataContentType, pdffile.data)">open</a>
+                        <span *ngIf="pdffile.data">{{ pdffile.dataContentType }}, {{ byteSize(pdffile.data) }}</span>
+                    </td>
+                    <td>
+                        {{ pdffile.user?.login }}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/pdffile', pdffile.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/pdffile', pdffile.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(pdffile)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="pdffiles?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

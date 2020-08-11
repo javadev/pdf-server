@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pdffile">
+            <h2><span>Pdffile</span> {{ pdffile.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ pdffile.name }}</span>
+                </dd>
+                <dt><span>Data</span></dt>
+                <dd>
+                    <div *ngIf="pdffile.data">
+                        <a (click)="openFile(pdffile.dataContentType!, pdffile.data)">open</a>
+                        {{ pdffile.dataContentType }}, {{ byteSize(pdffile.data) }}
+                    </div>
+                </dd>
+                <dt><span>User</span></dt>
+                <dd>
+                    {{ pdffile.user?.login }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pdffile', pdffile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
