@@ -58,7 +58,7 @@
         <!-- However due to regressions, we can't upgrade: https://liquibase.jira.com/browse/CORE-3536 and
          https://liquibase.jira.com/browse/CORE-3522 -->
         <liquibase.version>3.6.3</liquibase.version>
-        <liquibase-hibernate5.version>3.6</liquibase-hibernate5.version>
+        <liquibase-hibernate5.version>4.27.0</liquibase-hibernate5.version>
         <!-- The hibernate version to be used to override default version of liquibase maven plugin -->
         <hibernate-core.version>5.3.8.Final</hibernate-core.version>
         <h2.version>1.4.200</h2.version>
