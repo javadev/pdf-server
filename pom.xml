@@ -81,7 +81,7 @@
         <checkstyle.version>10.17.0</checkstyle.version>
         <spring-nohttp-checkstyle.version>0.0.4.RELEASE</spring-nohttp-checkstyle.version>
         <frontend-maven-plugin.version>1.15.0</frontend-maven-plugin.version>
-        <git-commit-id-plugin.version>4.0.0</git-commit-id-plugin.version>
+        <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
         <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
         <jib-maven-plugin.version>2.0.0</jib-maven-plugin.version>
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
